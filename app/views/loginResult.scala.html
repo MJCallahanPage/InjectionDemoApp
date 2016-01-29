@@ -1,0 +1,57 @@
+@import scala.collection.mutable.ArrayBuffer
+
+@(goodString:String)(badString:String)(goodLogin:ArrayBuffer[String])(badLogin:ArrayBuffer[String])
+
+@main("Login Results"){
+
+    <p>
+    <button id="back" name="back" value="back" onclick="window.history.back()">Back</button>
+    </p>
+
+    <table class="table">
+        <col width="50%" />
+        <thead>
+            <td><h2>Vulnerable Query</h2></td>
+            <td><h2>Protected Query</h2></td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @badString
+                </td>
+                <td>
+                    @goodString
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background:#ccc;"><b>Response</b></td>
+            </tr>
+            <tr>
+                @if(badLogin.length > 0){
+                <td style="background:#cdc;">
+                    <h1>Access Granted</h1>
+                    @badLogin
+                </td>
+                } else {
+                <td style="background:#dcc;">
+                    <h1>Access Denied!</h1>
+                    @badLogin
+                </td>
+                }
+                @if(goodLogin.length > 0){
+                <td style="background:#cdc;">
+                    <h1>Access Granted</h1>
+                    @goodLogin
+                </td>
+                } else {
+                <td style="background:#dcc;">
+                    <h1>Access Denied!</h1>
+                    @goodLogin
+                </td>
+                }
+            </tr>
+        </tbody>
+    </table>
+
+
+}

@@ -1,0 +1,20 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link href="/assets/stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <h1 style="margin:0;">Injection Demo</h1>
+            </div>
+            <div class="content">
+                @content
+            </div>
+        </div>
+    </body>
+</html>
